@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ChecklistTableViewController.tableView(_:cellForRowAt:):ChecklistTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath[1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ChecklistTableViewController.tableView(_:didSelectRowAt:):ChecklistTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell?.accessoryType==UITableViewCell.AccessoryType.checkmark">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
