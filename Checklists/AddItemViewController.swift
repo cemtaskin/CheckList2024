@@ -8,10 +8,17 @@
 import UIKit
 
 class AddItemViewController: UITableViewController {
+    
+    @IBOutlet weak var txtNewItem : UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        txtNewItem.becomeFirstResponder()
     }
     
     @IBAction func cancel  (){
@@ -19,6 +26,12 @@ class AddItemViewController: UITableViewController {
     }
     
     @IBAction func done (){
+        if let newItemText = txtNewItem.text {
+            print (newItemText)
+        }
+        
+        
+        
         dismiss(animated: true)
     }
 
