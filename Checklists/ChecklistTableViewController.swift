@@ -7,7 +7,25 @@
 
 import UIKit
 
-class ChecklistTableViewController: UITableViewController {
+class ChecklistTableViewController: UITableViewController,AddItemViewControllerDelegate {
+    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+        dismiss(animated: true)
+    }
+    
+    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+        
+        let newRowIndex = items.count
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        dismiss(animated: true)
+        
+        
+    }
+    
     
     var items : [ChecklistItem]
     
@@ -41,6 +59,16 @@ class ChecklistTableViewController: UITableViewController {
         
         super.init(coder: coder)
     
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier=="AddItem"){
+            let navigationContoller = segue.destination as! UINavigationController
+            let controller = navigationContoller.topViewController as! AddItemViewController
+            
+            controller.delegate = self
+        }
     }
     
 
