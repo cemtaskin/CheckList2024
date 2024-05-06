@@ -8,11 +8,18 @@
 import UIKit
 
 class AddItemViewController: UITableViewController,UITextFieldDelegate {
+    
+    @IBOutlet weak var textField : UITextField?
+    
     weak var delegate : AddItemViewControllerDelegate?
     
     @IBOutlet weak var doneBarButton : UIBarButtonItem!
     
-  
+    override func viewDidLoad() {
+        textField?.becomeFirstResponder()
+    }
+
+        
     @IBAction func cancel()
     {
         delegate?.addItemViewControllerDidCancel(self)
@@ -21,7 +28,7 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
     @IBAction func done()
     {
         let item = ChecklistItem()
-        item.text = "deneme"
+        item.text = textField!.text!
         item.checked=false
         delegate?.addItemViewController(self, didFinishAdding: item)
     }
